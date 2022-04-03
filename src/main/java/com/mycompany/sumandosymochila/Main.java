@@ -17,7 +17,7 @@ public class Main {
         
         LinkedList<Integer> L1 = new LinkedList<Integer>();
         LinkedList<Integer> L2 = new LinkedList<Integer>();
-        int n = 10;
+        int n = 12;
         int i = 1;
         
         int a = 3;
@@ -26,6 +26,8 @@ public class Main {
         //int max = 10;
      
         SumandosYMochila sm = new SumandosYMochila();
+        
+        //-- SUMANDOS
         
         System.out.println("Sumandos");
         sm.sumandos(L1, n, i);
@@ -54,6 +56,10 @@ public class Main {
         System.out.println("Sumandos Divisores");
         sm.sumandosDivisores(L1, n, i);
         
+        //-- FACTORES
+        
+        System.out.println("Factores");
+        sm.factores(L1, n, i);
         
 //        System.out.println("------------");
 //        System.out.println("Mochila");

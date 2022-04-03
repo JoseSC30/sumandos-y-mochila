@@ -160,8 +160,8 @@ public class SumandosYMochila {
         }
         int k = i;
         while(k <= n){
-            L1.add(k);
-            sumandosDiferentes(L1, n ,k);
+                L1.add(k);
+                sumandosDiferentes(L1, n ,k);
             L1.removeLast();
             k = k + 1;
         }
@@ -280,6 +280,37 @@ public class SumandosYMochila {
         }
     }
     
+    
+//*****************************************************************************//
+
+// Dado un entero N, encontrar todos los factores posibles, enteros positivos de N.
+//
+//Encontrar los factores posibles en una Lista.
+//Encontrar todos los factores posibles diferentes en una Lista.
+//Encontrar todos los factores posibles iguales en una Lista.
+//Encontrar todos los factores primos posibles en una Lista.
+//Encontrar todos los factores entre a y b inclusive en una Lista.
+//Proponer adicionalmente otros problemas similares interesantes sobre Factores y/o sus variantes y/o Combinarlos.    
+
+public void factores(LinkedList<Integer> L1, int n, int i) {
+        if(i > n+1) return;
+        if((i == n+1)) {
+            System.out.println(L1);
+            return;
+        }
+        LinkedList<Integer> listaAux = L1;
+        int k = 1;
+        while(k <= n+1){
+            if (((n/i) == k) && (n%i == 0)) {
+                L1.add(k);
+            } else {
+                if(k == n+1){
+                    factores(L1, n ,i+1);
+                }
+            }
+                k++;
+        }
+    }
     
 //*****************************************************************************//    
     public void mochila(LinkedList<Integer> L1,
