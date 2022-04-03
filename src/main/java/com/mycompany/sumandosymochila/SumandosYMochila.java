@@ -298,29 +298,29 @@ public class SumandosYMochila {
 //-- Encontrar todos los factores posibles iguales en una Lista.
 //-- Encontrar todos los factores primos posibles en una Lista.
 //-- Encontrar todos los factores entre a y b inclusive en una Lista.
-//** Proponer adicionalmente otros problemas similares interesantes sobre Factores y/o sus variantes y/o Combinarlos.    
+//-- Proponer adicionalmente otros problemas similares interesantes sobre Factores y/o sus variantes y/o Combinarlos.    
 
-    public void factores(LinkedList<Integer> L1, int n, int i) {
-        if(i > n+1) return;
-        if((i == n+1)) {
-            System.out.println(L1);
-            return;
-        }
-        LinkedList<Integer> listaAux = L1;
-        int k = 1;
-        while(k <= n+1){
-            if (((n/i) == k) && (n%i == 0)) {
-                L1.add(k);
-            } else {
-                if(k == n+1){
-                    factores(L1, n ,i+1);
-                }
-            }
-                k++;
-        }
-    }
+//    public void factoresTODOS(LinkedList<Integer> L1, int n, int i) {
+//        if(i > n+1) return;
+//        if((i == n+1)) {
+//            System.out.println(L1);
+//            return;
+//        }
+//        //LinkedList<Integer> listaAux = L1;
+//        int k = 1;
+//        while(k <= n+1){
+//            if (((n/i) == k) && (n%i == 0)) {
+//                L1.add(k);
+//            } else {
+//                if(k == n+1){
+//                    factoresTODOS(L1, n ,i+1);
+//                }
+//            }
+//                k++;
+//        }
+//    }
     
-    public void factoresC(LinkedList<Integer> L1, int n, int i) {
+    public void factores(LinkedList<Integer> L1, int n, int i) {
         int fac = multiplicacion(L1);
         if(fac > n) return;
         if(fac == n && (L1.getFirst() != n)) {
@@ -332,12 +332,12 @@ public class SumandosYMochila {
             L1.add(k);
             if (L1.getFirst()== 1) {
                 L1.add(n);
-                factoresC(L1, n, n);
+                factores(L1, n, n);
                 L1.removeLast();
                 L1.removeLast();
                 k = k + 1;
             } else {
-                factoresC(L1, n, k);
+                factores(L1, n, k);
                 L1.removeLast();
                 k = k + 1;
             }

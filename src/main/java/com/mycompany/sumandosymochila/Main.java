@@ -58,11 +58,11 @@ public class Main {
         
         //-- FACTORES
         
-        System.out.println("Factores");
-        sm.factores(L1, n, i);
+//        System.out.println("Muestra de todos los factores");
+//        sm.factoresTODOS(L1, n, i);
         
-        System.out.println("FactoresC");
-        sm.factoresC(L2, n, i);
+        System.out.println("Factores");
+        sm.factores(L2, n, i);
         
         System.out.println("Factores Diferentes");
         sm.factoresDiferentes(L2, n, i);
@@ -83,9 +83,7 @@ public class Main {
         sm.factoresImpares(L2, n, i);
         
         System.out.println("Factores Binario");
-        sm.factoresBinario(L2, n, i);
-        
-        
+        sm.factoresBinario(L2, n, i);      
         
 //        System.out.println("------------");
 //        System.out.println("Mochila");
