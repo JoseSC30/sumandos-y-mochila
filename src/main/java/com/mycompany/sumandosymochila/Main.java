@@ -17,10 +17,10 @@ public class Main {
         
         LinkedList<Integer> L1 = new LinkedList<Integer>();
         LinkedList<Integer> L2 = new LinkedList<Integer>();
-        int n = 12;
+        int n = 8;
         int i = 1;
         
-        int a = 3;
+        int a = 2;
         int b = 6;
         
         //int max = 10;
@@ -60,6 +60,32 @@ public class Main {
         
         System.out.println("Factores");
         sm.factores(L1, n, i);
+        
+        System.out.println("FactoresC");
+        sm.factoresC(L2, n, i);
+        
+        System.out.println("Factores Diferentes");
+        sm.factoresDiferentes(L2, n, i);
+        
+        System.out.println("Factores Iguales");
+        sm.factoresIguales(L2, n, i);
+        
+        System.out.println("Factores Primos");
+        sm.factoresPrimos(L2, n, i);
+
+        System.out.println("Factores Entre " + a + " y " + b);
+        sm.factoresEntreAB(L2, n, i, a, b);
+        
+        System.out.println("Factores Pares");
+        sm.factoresPares(L2, n, i);
+        
+        System.out.println("Factores Impares");
+        sm.factoresImpares(L2, n, i);
+        
+        System.out.println("Factores Binario");
+        sm.factoresBinario(L2, n, i);
+        
+        
         
 //        System.out.println("------------");
 //        System.out.println("Mochila");

@@ -21,6 +21,14 @@ public class SumandosYMochila {
         return r;
     }
     
+    private int multiplicacion(LinkedList<Integer> L1){
+        Integer r = 1;
+        for(Integer recorrido: L1) {
+            r = r * recorrido;
+        }
+        return r;
+    }
+    
     private boolean esPrimo(int n){
         for(int i = 2; i < n ; i++) {
             if((n % i) == 0 ) {
@@ -285,14 +293,14 @@ public class SumandosYMochila {
 
 // Dado un entero N, encontrar todos los factores posibles, enteros positivos de N.
 //
-//Encontrar los factores posibles en una Lista.
-//Encontrar todos los factores posibles diferentes en una Lista.
-//Encontrar todos los factores posibles iguales en una Lista.
-//Encontrar todos los factores primos posibles en una Lista.
-//Encontrar todos los factores entre a y b inclusive en una Lista.
-//Proponer adicionalmente otros problemas similares interesantes sobre Factores y/o sus variantes y/o Combinarlos.    
+//-- Encontrar los factores posibles en una Lista.
+//-- Encontrar todos los factores posibles diferentes en una Lista.
+//-- Encontrar todos los factores posibles iguales en una Lista.
+//-- Encontrar todos los factores primos posibles en una Lista.
+//-- Encontrar todos los factores entre a y b inclusive en una Lista.
+//** Proponer adicionalmente otros problemas similares interesantes sobre Factores y/o sus variantes y/o Combinarlos.    
 
-public void factores(LinkedList<Integer> L1, int n, int i) {
+    public void factores(LinkedList<Integer> L1, int n, int i) {
         if(i > n+1) return;
         if((i == n+1)) {
             System.out.println(L1);
@@ -310,6 +318,199 @@ public void factores(LinkedList<Integer> L1, int n, int i) {
             }
                 k++;
         }
+    }
+    
+    public void factoresC(LinkedList<Integer> L1, int n, int i) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n)) {
+            System.out.println(L1);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresC(L1, n, n);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresC(L1, n, k);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
+    }
+    
+    public void factoresDiferentes(LinkedList<Integer> L1, int n, int i) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n) && listaDiferente(L1)) {
+            System.out.println(L1);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresDiferentes(L1, n, n);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresDiferentes(L1, n, k);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
+    }
+    
+    public void factoresIguales(LinkedList<Integer> L1, int n, int i) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n) && listaIguales(L1)) {
+            System.out.println(L1);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresIguales(L1, n, n);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresIguales(L1, n, k);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
+    }
+    
+    public void factoresPrimos(LinkedList<Integer> L1, int n, int i) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n) && listaPrimos(L1)) {
+            System.out.println(L1);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresPrimos(L1, n, n);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresPrimos(L1, n, k);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
+    }
+    
+    public void factoresEntreAB(LinkedList<Integer> L1, int n, int i, int a, int b) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n) && listaEntreAB(L1, a, b)) {
+            System.out.println(L1);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresEntreAB(L1, n, n, a, b);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresEntreAB(L1, n, k, a, b);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
+    }
+    
+    public void factoresPares(LinkedList<Integer> L1, int n, int i) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n) && listaPares(L1)) {
+            System.out.println(L1);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresPares(L1, n, n);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresPares(L1, n, k);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
+    }
+    
+    public void factoresImpares(LinkedList<Integer> L1, int n, int i) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n) && listaImpares(L1)) {
+            System.out.println(L1);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresImpares(L1, n, n);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresImpares(L1, n, k);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
+    }
+    
+    public void factoresBinario(LinkedList<Integer> L1, int n, int i) {
+        int fac = multiplicacion(L1);
+        if(fac > n) return;
+        if(fac == n && (L1.getFirst() != n)) {
+            String binario = listaBinario(L1);
+            System.out.println(binario);
+            return;
+        }
+        int k = i;
+        while(k <= n){
+            L1.add(k);
+            if (L1.getFirst()== 1) {
+                L1.add(n);
+                factoresBinario(L1, n, n);
+                L1.removeLast();
+                L1.removeLast();
+                k = k + 1;
+            } else {
+                factoresBinario(L1, n, k);
+                L1.removeLast();
+                k = k + 1;
+            }
+        }    
     }
     
 //*****************************************************************************//    
